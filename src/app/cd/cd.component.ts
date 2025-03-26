@@ -20,7 +20,7 @@ export class CdComponent {
   ngOnInit(): void {
     this.idCd = this.route.snapshot.params['id'];
     if (this.idCd !== undefined ) {
-      this.theCd = this.cdService.getCdById(+this.idCd);
+      this.cdService.getCdById(+this.idCd).subscribe(cd => {this.theCd = cd});
     } else {
       this.theCd = this.cd;
     }
